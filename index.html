@@ -4,9 +4,49 @@
     <meta charset="utf-8">
     <title>what is jason eating?</title>
     <meta name="description" content="A web page to tell you what I'm eating... because the internet.">
+
+    <script>
+      // Some scriptfoo to grab what I'm eating from a seperate text file (easier to update via phone).
+      window.onload = function() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById('eating').innerHTML = xhr.responseText;
+          }
+        }
+        xhr.open('GET', 'eating.txt', true);
+        xhr.send();
+      }
+    </script>
+
+    <style>
+      body {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        margin: -42px auto 0;
+        background-color: #222;
+        color: #ccc;
+        text-align: center;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+        font-style: normal;
+        font-variant: normal;
+        line-height: 23px;
+      }
+      h1 {
+        font-size: 23px;
+        font-weight: 500;
+      }
+      p {
+        font-size: 17px;
+        font-weight: 400;
+      }
+    </style>
+
   </head>
+
   <body>
     <h1>what is jason eating?</h1>
-    <p>jook (rice congee) with turkey confit</p>
+    <p id="eating"><noscript>Delicious script! Perhaps you should enable yours.</noscript></p>
   </body>
 </html>
