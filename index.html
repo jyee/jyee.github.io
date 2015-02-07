@@ -11,17 +11,15 @@
     <meta property="og:url" content="http://whatisjasoneating.com" />
     <meta property="og:image" content="http://whatisjasoneating.com/jyee_eating.jpg" />
 
+    <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
     <script>
-      // Some scriptfoo to grab what I'm eating from a seperate text file (easier to update via phone).
-      document.addEventListener('DOMContentLoaded', function(event) {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState == 4 && xhr.status == 200) {
-            document.getElementById('eating').innerHTML = xhr.responseText;
-          }
+      var db = new Firebase('https://radiant-fire-633.firebaseio.com/wije');
+      db.on('value', function(data) {
+        if (eating = data.val()) {
+          document.getElementById('eating').innerHTML = eating.eating;
         }
-        xhr.open('GET', 'eating.txt', true);
-        xhr.send();
+      }, function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
       });
     </script>
 
