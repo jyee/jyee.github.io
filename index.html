@@ -11,46 +11,17 @@
     <meta property="og:url" content="http://whatisjasoneating.com" />
     <meta property="og:image" content="http://whatisjasoneating.com/jyee_eating.jpg" />
 
-    <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
-    <script>
-      var db = new Firebase('https://radiant-fire-633.firebaseio.com/wije');
-      db.on('value', function(data) {
-        if (eating = data.val()) {
-          document.getElementById('eating').innerHTML = eating.eating;
-        }
-      }, function(errorObject) {
-        console.log("The read failed: " + errorObject.code);
-      });
-    </script>
+    <link rel="stylesheet" type="text/css" href="eating.css" media="all">
 
-    <style>
-      body {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        margin: -42px auto 0;
-        background-color: #222;
-        color: #ccc;
-        text-align: center;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
-        font-style: normal;
-        font-variant: normal;
-        line-height: 23px;
-      }
-      h1 {
-        font-size: 23px;
-        font-weight: 500;
-      }
-      p {
-        font-size: 17px;
-        font-weight: 400;
-      }
-    </style>
-
+    <script defer src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+    <script defer src='eating.js'></script>
   </head>
 
   <body>
     <h1>what is jason eating?</h1>
-    <p id="eating"><noscript>Delicious script! Perhaps you should enable yours.</noscript></p>
+    <p id="eating">
+      <noscript>Delicious script! Perhaps you should enable yours.</noscript>
+      ...
+    </p>
   </body>
 </html>

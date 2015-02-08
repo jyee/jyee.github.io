@@ -1,0 +1,21 @@
+body {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin: -42px auto 0;
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 23px;
+}
+h1 {
+  font-size: 23px;
+  font-weight: 500;
+}
+p {
+  font-size: 17px;
+  font-weight: 400;
+}
