@@ -1,6 +1,7 @@
 $(function() {
 
   $('#eat').click( function() {
+    $('#status').html('sending...').css('color', '#FF0');
     var db = new Firebase('https://radiant-fire-633.firebaseio.com/wije');
 
     db.authWithPassword({
